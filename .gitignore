@@ -1,0 +1,16 @@
+# Never commit local messages, pairing keys or configuration.
+data/
+*.sqlite
+*.sqlite-*
+*.db
+*.db-*
+*management-key*
+.env
+.env.*
+!.env.example
+node_modules/
+coverage/
+outputs/
+*.log
+.DS_Store
+.preview-data/

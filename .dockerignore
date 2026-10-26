@@ -1,0 +1,10 @@
+data
+.git
+.env*
+node_modules
+outputs
+coverage
+*.sqlite*
+*.db*
+*management-key*
+.preview-data

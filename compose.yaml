@@ -1,0 +1,16 @@
+services:
+  inbox:
+    build: .
+    restart: unless-stopped
+    ports:
+      - "3210:3210"
+    environment:
+      HOST: 0.0.0.0
+      DATA_DIR: /app/data
+      RETENTION_HOURS: 24
+      # 远程反向代理时设置，如 https://sms.example.com（不带路径）
+      # PUBLIC_URL: https://sms.example.com
+    volumes:
+      - inbox-data:/app/data
+volumes:
+  inbox-data:

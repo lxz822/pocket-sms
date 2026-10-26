@@ -1,0 +1,32 @@
+{
+  "name": "pocket-sms",
+  "version": "1.0.0",
+  "description": "随身收件箱：零账号、本地SQLite、自托管的备用机短信收件箱",
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "scripts": {
+    "start": "node server.mjs",
+    "lan": "node server.mjs --lan",
+    "test": "node --test",
+    "check": "node --check server.mjs && node --check src/app.mjs && node --check src/store.mjs && node --check public/app.js",
+    "dev": "node tools/dev-preview.mjs"
+  },
+  "files": [
+    "server.mjs",
+    "src/",
+    "public/",
+    "README.md",
+    "LICENSE",
+    "docs/",
+    "Dockerfile",
+    "compose.yaml",
+    "start-local.bat",
+    "start-local.command",
+    "start-lan.bat",
+    "start-lan.command",
+    "tools/"
+  ]
+}
