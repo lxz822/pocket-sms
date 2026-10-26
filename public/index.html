@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="color-scheme" content="light"><title>随身收件箱 · 本地版</title><link rel="icon" href="/favicon.svg"><link rel="stylesheet" href="/style.css"><script src="/app.js" defer></script></head>
+<body>
+<main class="app">
+  <div class="brand"><span class="logo">✉</span><span>随身收件箱 <small>LOCAL</small></span><span class="private">无需账号 · 独立部署</span></div>
+  <header class="top"><div><h1>短信，随身查看。</h1><p class="subtitle">数据留在自己的设备上。</p></div><span id="connection" class="live"><i class="dot warn"></i><span>正在连接</span></span></header>
+  <div id="error" class="banner" role="alert" hidden></div>
+  <div class="layout">
+    <aside class="panel sidebar"><div class="side-title">我的备用机 <span id="device-count">0</span></div><div id="devices" class="devices"></div>
+      <div class="admin" hidden><button id="add-device" class="primary wide">＋ 接入B手机</button><button id="add-viewer" class="wide">在A手机上查看 ↗</button><button id="manage" class="text-btn">管理配对与本地数据</button></div>
+      <p class="note">B手机需要保持开机、有信号、联网。最近上传时间不能证明设备仍然在线。</p>
+    </aside>
+    <section>
+      <div class="panel"><div class="toolbar"><label class="search"><span aria-hidden="true">⌕</span><input id="query" type="search" aria-label="搜索短信" placeholder="搜索号码或短信内容"></label><select id="device-filter" aria-label="筛选备用机"><option value="all">全部设备</option></select><button id="refresh" aria-label="立即刷新" title="立即刷新">↻</button></div><div id="messages" class="list" aria-label="短信列表"></div></div>
+      <div class="footer"><span id="checked">等待连接</span><button id="clear" class="admin text-btn" hidden>清空网页短信</button></div>
+      <details class="panel details"><summary>怎么使用？是否能实时收到？</summary><p>在部署设备本机打开网页，无需注册和登录。点击“接入B手机”，按向导在安卓短信转发器中配置Webhook。再用“在A手机上查看”生成配对链接。</p><p>页面在前台时每2秒检查一次，后台或锁屏时可能暂停。它绕过Bark推送，但B端读取或上传的延迟仍然会影响结果。</p><p>数据存放在你运行程序的电脑、NAS或手机上；不是每台浏览器都各有一份数据库。不同人的独立部署彼此不共享数据，同一个实例的查看配对可以看到该实例的短信。</p><p>局域网内用设备IP连接。出门后需要先通过你自己的私人网络连回家中设备，或自行配置HTTPS访问地址；程序不提供公共中转服务器。</p><p>浏览器不能直接读取B手机短信。当前仍需要B上的安卓短信转发器，不能接听电话，也不会主动读取B的历史短信。</p></details>
+    </section>
+  </div>
+</main>
+<dialog id="setup"><div class="modal-head"><h2 id="setup-title">接入手机</h2><button id="close-dialog" aria-label="关闭窗口">×</button></div><div id="setup-body"></div></dialog>
+<div id="toast" class="toast" role="status" hidden></div>
+</body></html>
